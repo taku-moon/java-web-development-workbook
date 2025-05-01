@@ -2,11 +2,21 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>Todo Register</title>
 </head>
 <body>
     <form action="/todo/register" method="post">
-        <button type="submit">등록하기</button>
+        <div>
+            <input type="text" name="title" placeholder="Insert Title">
+        </div>
+        <div>
+            <input type="date" name="dueDate">
+        </div>
+        <div>
+            <button type="reset">Reset</button>
+            <button type="submit">Register</button>
+        </div>
     </form>
+
 </body>
 </html>

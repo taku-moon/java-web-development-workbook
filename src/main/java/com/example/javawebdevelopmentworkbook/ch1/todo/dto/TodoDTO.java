@@ -1,18 +1,18 @@
-package com.example.javawebdevelopmentworkbook.todo.dto;
+package com.example.javawebdevelopmentworkbook.ch1.todo.dto;
 
 import java.time.LocalDate;
 
 public class TodoDTO {
-    private long tno;
+    private Long tno;
     private String title;
     private LocalDate dueDate;
     private boolean finished;
 
-    public long getTno() {
+    public Long getTno() {
         return tno;
     }
 
-    public void setTno(long tno) {
+    public void setTno(Long tno) {
         this.tno = tno;
     }
 

@@ -1,4 +1,4 @@
-package com.example.javawebdevelopmentworkbook;
+package com.example.javawebdevelopmentworkbook.ch1;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -17,7 +17,7 @@ public class TestServlet extends HttpServlet {
         response.setContentType("text/html");
 
         PrintWriter out = response.getWriter();
-        out.println("<h1>TestServlet</h1>");
+        out.print("<h1>TestServlet</h1>");
         out.close();
     }
 }

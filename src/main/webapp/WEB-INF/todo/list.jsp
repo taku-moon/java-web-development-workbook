@@ -3,13 +3,19 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>Todo List</title>
 </head>
 <body>
-    <h1>List Page</h1>
-
-    <c:forEach var="dto" items="${dtoList}">
-        <li>${dto}</li>
-    </c:forEach>
+    <h1>Todo List</h1>
+    <ul>
+        <c:forEach var="dto" items="${dtoList}">
+            <li>
+                <span><a href="/todo/read?tno=${dto.tno}">${dto.tno}</a></span>
+                <span>${dto.title}</span>
+                <span>${dto.dueDate}</span>
+                <span>${dto.finished ? "Done" : "Not Yet"}</span>
+            </li>
+        </c:forEach>
+    </ul>
 </body>
 </html>

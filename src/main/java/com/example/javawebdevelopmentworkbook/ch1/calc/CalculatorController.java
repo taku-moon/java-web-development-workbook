@@ -1,4 +1,4 @@
-package com.example.javawebdevelopmentworkbook.calc;
+package com.example.javawebdevelopmentworkbook.ch1.calc;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -13,14 +13,14 @@ public class CalculatorController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("InputController...doGet()...");
+        System.out.println("CalculatorController...doGet()...");
 
-        request.getRequestDispatcher("/WEB-INF/calc/input.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/ch1/calc/input.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("InputController...doPost()...");
+        System.out.println("CalculatorController...doPost()...");
 
         String num1 = request.getParameter("num1");
         String num2 = request.getParameter("num2");
@@ -30,6 +30,6 @@ public class CalculatorController extends HttpServlet {
         request.setAttribute("num2", num2);
         request.setAttribute("sum", sum);
 
-        request.getRequestDispatcher("/WEB-INF/calc/output.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/ch1/calc/output.jsp").forward(request, response);
     }
 }

@@ -1,14 +1,25 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
-    <title>Title</title>
+    <title>Todo Read</title>
 </head>
 <body>
-    <div>${dto.tno}</div>
-    <div>${dto.title}</div>
-    <div>${dto.dueDate}</div>
-    <div>${dto.finished}</div>
+    <div>
+        <input type="text" name="tno" value="${dto.tno}" readonly>
+    </div>
+    <div>
+        <input type="text" name="title" value="${dto.title}" readonly>
+    </div>
+    <div>
+        <input type="date" name="dueDate" value="${dto.dueDate}" readonly>
+    </div>
+    <div>
+        <input type="checkbox" name="finished" ${dto.finished ? "checked" : ""} readonly>
+    </div>
+    <div>
+        <a href="/todo/modify?tno=${dto.tno}">Modify/Remove</a><br>
+        <a href="/todo/list">List</a>
+    </div>
 </body>
 </html>

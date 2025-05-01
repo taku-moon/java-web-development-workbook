@@ -1,4 +1,4 @@
-package com.example.javawebdevelopmentworkbook;
+package com.example.javawebdevelopmentworkbook.ch1;
 
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
@@ -15,7 +15,6 @@ public class SampleServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         System.out.println("SampleServlet init()");
-
     }
 
     @Override

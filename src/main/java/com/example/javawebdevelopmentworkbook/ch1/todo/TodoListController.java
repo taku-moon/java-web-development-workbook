@@ -1,7 +1,7 @@
-package com.example.javawebdevelopmentworkbook.todo;
+package com.example.javawebdevelopmentworkbook.ch1.todo;
 
-import com.example.javawebdevelopmentworkbook.todo.dto.TodoDTO;
-import com.example.javawebdevelopmentworkbook.todo.service.TodoService;
+import com.example.javawebdevelopmentworkbook.ch1.todo.dto.TodoDTO;
+import com.example.javawebdevelopmentworkbook.ch1.todo.service.TodoService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,14 +11,16 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/todo/list")
+@WebServlet("/ch1/todo/list")
 public class TodoListController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         List<TodoDTO> dtoList = TodoService.INSTANCE.getList();
+
         request.setAttribute("dtoList", dtoList);
 
-        request.getRequestDispatcher("/WEB-INF/todo/list.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/ch1/todo/list.jsp").forward(request, response);
     }
 }
