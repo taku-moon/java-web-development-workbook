@@ -22,6 +22,8 @@ public class TodoModifyController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        log.info(">> /todo/modify doGet()");
+
         try {
             Long tno = Long.parseLong(request.getParameter("tno"));
             TodoDTO todoDTO = todoService.get(tno);
@@ -29,12 +31,14 @@ public class TodoModifyController extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/todo/modify.jsp").forward(request, response);
         } catch (Exception e) {
             log.error(e.getMessage());
-            throw new ServletException("modify get... error");
+            throw new ServletException("modify get error");
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        log.info(">> /todo/modify doPost()");
+
         String finishedStr = request.getParameter("finished");
 
         TodoDTO todoDTO = TodoDTO.builder()
@@ -44,13 +48,11 @@ public class TodoModifyController extends HttpServlet {
                 .finished(finishedStr != null && finishedStr.equals("on"))
                 .build();
 
-        log.info("/todo/modify POST");
-        log.info(todoDTO);
-
         try {
             todoService.modify(todoDTO);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.getMessage());
+            throw new ServletException("modify post error");
         }
 
         response.sendRedirect("/todo/list");

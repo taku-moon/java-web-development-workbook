@@ -18,6 +18,8 @@ public class TodoRemoveController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        log.info(">> /todo/remove doPost()");
+
         Long tno = Long.parseLong(request.getParameter("tno"));
 
         log.info(">> tno: " + tno);
@@ -26,7 +28,7 @@ public class TodoRemoveController extends HttpServlet {
             todoService.remove(tno);
         } catch (Exception e) {
             log.error(e.getMessage());
-            throw new ServletException("read error");
+            throw new ServletException("remove error");
         }
 
         response.sendRedirect("/todo/list");

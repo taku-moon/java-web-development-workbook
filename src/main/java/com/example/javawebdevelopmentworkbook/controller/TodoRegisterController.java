@@ -22,25 +22,25 @@ public class TodoRegisterController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.info(">> /todo/register GET <<");
+        log.info(">> /todo/register doGet()");
+
         request.getRequestDispatcher("/WEB-INF/todo/register.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.info(">> /todo/register POST <<");
+        log.info(">> /todo/register doPost()");
 
         TodoDTO todoDTO = TodoDTO.builder()
                 .title(request.getParameter("title"))
                 .dueDate(LocalDate.parse(request.getParameter("dueDate"), formatter))
                 .build();
 
-        log.info(todoDTO);
-
         try {
             todoService.register(todoDTO);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.getMessage());
+            throw new ServletException("register post error");
         }
 
         response.sendRedirect("/todo/list");

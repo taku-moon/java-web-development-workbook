@@ -5,6 +5,7 @@ import org.modelmapper.config.Configuration;
 import org.modelmapper.convention.MatchingStrategies;
 
 public enum MapperUtil {
+
     INSTANCE;
 
     private ModelMapper modelMapper;

@@ -57,8 +57,7 @@ public enum TodoService {
 
         List<TodoVO> voList = dao.selectAll();
 
-        log.info(">> voList <<");
-        log.info(voList);
+        log.info(">> voList: " + voList);
 
         return voList.stream()
                 .map(vo -> modelMapper.map(vo, TodoDTO.class))

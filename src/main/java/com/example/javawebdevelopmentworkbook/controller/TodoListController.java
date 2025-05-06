@@ -2,6 +2,7 @@ package com.example.javawebdevelopmentworkbook.controller;
 
 import com.example.javawebdevelopmentworkbook.dto.TodoDTO;
 import com.example.javawebdevelopmentworkbook.service.TodoService;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -20,7 +21,11 @@ public class TodoListController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.info(">> /todo/list <<");
+        log.info(">> /todo/list doGet()");
+
+        ServletContext servletContext = request.getServletContext();
+
+        log.info("appName: " + servletContext.getAttribute("appName"));
 
         try {
             List<TodoDTO> dtoList = todoService.listAll();
